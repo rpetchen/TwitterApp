@@ -1,0 +1,37 @@
+extends layout.pug
+
+block content
+
+ div.app--tweet
+  form(method="POST", action="/post", id="twitForm")
+   .circle--fluid
+    .circle--fluid--cell.circle--fluid--primary.align-bottom.app--tweet--post
+     .app--avatar(style="background-image: url(static/img/m-spore.png)")
+      img(src="static/img/m-spore.png")
+     textarea.circle--textarea--input#tweet-textarea(name="postText", form="twitForm", placeholder!="What's happening?")
+     strong.app-tweet--char#tweet-char 140
+
+    div.circle--fluid--cell.align-bottom
+     button.button-primary Tweet
+
+ div.bounds.app--body
+  div.app--section--header
+
+   div.grid-33
+    div.app--section--heading
+     h2 Timeline
+
+   div.grid-33
+    div.app--section--heading
+     strong #{twitFriends.users.length}
+     h2 Following
+
+   div.grid-33
+    div.app--section--heading
+     h2 Direct Messages
+
+
+  include includes/timeline.pug
+  include includes/friends.pug
+  include includes/messages.pug
+

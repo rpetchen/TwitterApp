@@ -1,0 +1,13 @@
+.grid-33
+ .app--section
+  ul.app--message--list
+   li
+    h3 Conversations
+     ul.app--message--conversation
+      each val in twitMessages
+       li.app--message
+        .app--avatar(style="background-image: url('"+val.sender.profile_image_url+"')")
+         img(src=val.profile_image_url)
+        .app--message--text= val.text
+        .pp--message--timestamp= `${val.created_at} ${val.created_at_time}`
+       
